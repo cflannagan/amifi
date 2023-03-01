@@ -1,0 +1,5 @@
+# https://api.youneedabudget.com/v1#/Budgets/getBudgets
+# https://api.youneedabudget.com/#personal-access-tokens
+development:
+  budget_id: the_budget_uuid
+  authorization_token: the_api_token

@@ -1,0 +1,15 @@
+You are now at <%= (@fi_net_worth / @fi_spending * 100.0).round(2) %>% of the way to financial independence.
+<br>
+<br>
+<b>$<%= @fi_spending.abs.round(2) %></b> is the target FI figure, based on following spending averages over the last 12 month period:
+<br>
+$<%= (@fi_spending.abs / 25.0).round(2) %> annually.
+<br>
+$<%= (@fi_spending.abs / 300.0).round(2) %> monthly.
+<br>
+<br>
+Your FI figure is currently short $<%= @fi_figure.abs.round(2) %>. Need to come up with that.
+<br>
+Or have additional
+$<%= (@fi_figure.abs / 300.0).round(2) %> monthly in form of passive income.
+
