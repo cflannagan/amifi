@@ -39,3 +39,6 @@
 
 # personal dev notes
 /devnotes/*
+
+# no need
+**/.DS_Store

@@ -1,6 +1,6 @@
 # README
 
-![AMIFI: Retire Early](./amifi.jpg)
+![AMIFI: Retire Early](./lib/assets/amifi.jpg)
 ### *Work In Progress*
 
 Instructions coming soon
