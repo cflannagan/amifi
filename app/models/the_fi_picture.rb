@@ -8,6 +8,7 @@ class TheFiPicture < ApplicationRecord
   def self.passive_income
     YnabTransaction
       .inflows
+      .cleared
       .not_transferred
       .not_disregarded
       .exclude_hidden_categories
@@ -20,6 +21,7 @@ class TheFiPicture < ApplicationRecord
   # TheFiPicture.spending
   def self.spending
     amt = YnabTransaction
+          .cleared
           .not_transferred
           .not_disregarded
           .exclude_hidden_categories

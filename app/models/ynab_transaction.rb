@@ -14,6 +14,11 @@ class YnabTransaction < ApplicationRecord
     where(transfer_account_id: nil)
   end
 
+  # NOTE: this would also inherently include reconciled
+  def self.cleared
+    where(cleared: %w[cleared reconciled])
+  end
+
   def self.not_disregarded
     where("memo IS NULL OR memo NOT LIKE ?", "%AMIFI:DISREGARD%")
   end

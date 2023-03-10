@@ -7,6 +7,8 @@ AllCops:
     - 'bin/{rails,rake}'
     - 'test/**/*'
     - 'bin/**/*'
+    - 'spec/rails_helper.rb'
+    - 'spec/spec_helper.rb'
     - !ruby/regexp /old_and_unused\.rb$/
 Style/FrozenStringLiteralComment:
   Enabled: false
