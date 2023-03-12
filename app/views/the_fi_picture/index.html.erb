@@ -2,17 +2,47 @@ Today is <%= DateTime.current.in_time_zone("America/New_York") %>
 <br>
 <br>
 You are now at <%= (@fi_net_worth / @fi_spending * 100.0).round(2) %>% of the way to financial independence.
-<br>
-<br>
+<br><br>
+
 <b>$<%= @fi_spending.abs.round(2) %></b> is the target FI figure, based on following spending averages over the last 12 month period:
 <br>
+
 $<%= (@fi_spending.abs / 25.0).round(2) %> annually.
 <br>
+
 $<%= (@fi_spending.abs / 300.0).round(2) %> monthly.
-<br>
-<br>
-Your FI figure is currently short $<%= @fi_figure.abs.round(2) %>. Need to come up with that.
-<br>
-Or have additional
-$<%= (@fi_figure.abs / 300.0).round(2) %> monthly in form of passive income.
+<br><br>
+
+<% if @fi_figure < 0 %>
+  Your FI figure is short $<%= @fi_figure.abs.round(2) %>.
+  <br><br>
+
+  In order to achieve financial independence, you would need to do one of following:
+  <br>
+
+  <ul>
+    <li>Add $<%= (@fi_figure.abs / 300.0).round(2) %> monthly ($<%= (@fi_figure.abs / 25.0 / 52.0).round(2) %> weekly)
+    in form of passive income.</li>
+    <li>Or downsize house with net gain of $<%= @fi_figure.abs.round(2) %>
+    (caveats apply: 6% fee, capital gain tax, need to buy downsized home to live in, etc)</li>
+
+    <li>
+  </ul>
+  <br>
+
+<% else %>
+  YOU HAVE ACHIEVED FINANCIAL INDEPENDENCE! WOO WOO!
+  <br><br>
+
+<% end %>
+
+<% if @oldest_stale_reconciled_account %>
+  For best results, ensure your active (non-closed) accounts are all up to date and reconciled!
+  <br>
+  One of your accounts, <%= @oldest_stale_reconciled_account  .name %>,
+  was last reconciled <%= ((Time.current - @oldest_reconciled_account.last_reconciled_at) / 1.day).to_i %>
+  days ago.
+  <% else %>
+  No "stale" accounts found. Good job on keeping your active accounts up to date and reconciled!
+<% end %>
 

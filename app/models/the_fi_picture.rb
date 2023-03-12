@@ -1,7 +1,9 @@
+# A class that ties everything together. Probably will be a model with db table eventually (recording key values among with
+# a timestamp)
 class TheFiPicture < ApplicationRecord
   # TheFiPicture.assets
   def self.assets
-    YnabAccount.active.sum(:balance) / 1000.0
+    YnabAccount.active.sum(:cleared_balance) / 1000.0
   end
 
   # TheFiPicture.passive_income

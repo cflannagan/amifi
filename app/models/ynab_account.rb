@@ -6,6 +6,13 @@ class YnabAccount < ApplicationRecord
       .where("note IS NULL OR note NOT LIKE ?", "%AMIFI:DISREGARD%")
   end
 
+  # by default it's just 1 day.
+  # TODO: Functionality to overridefrom YNAB side setting like AMIFI:UPDATED_MONTHLY, need to think about what
+  # other good values besides UPDATED_MONTHLY for potentual users of this app.
+  def self.stale_last_reconciled_at
+    where("last_reconciled_at < ?", Time.current - 1.day)
+  end
+
   # Overrides YnabDataImporter implementation
   def self.transform(accts)
     super(

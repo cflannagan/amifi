@@ -1,6 +1,6 @@
-namespace :ynab do
+namespace :amifi do
   desc "Overwrites your local YNAB data with latest"
-  task upsert_all: :environment do
+  task upsert_all_from_ynab: :environment do
     puts "\n Are you sure you want to overwrite existing local YNAB data? [Y/N]"
     answer = $stdin.gets.chomp
     if answer == "Y"
