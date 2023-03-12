@@ -1,4 +1,7 @@
-Today is <%= DateTime.current.in_time_zone("America/New_York") %>
+<%= image_tag "amifi.jpg", height: 350 %>
+<br>
+
+AmIFI is a personal project currently in progress. Today is <%= Date.current.in_time_zone("America/New_York").strftime("%Y-%m-%d") %>
 <br>
 <br>
 You are now at <%= (@fi.percent_of_target * 100.0).round(2) %>% of the way to financial independence.
