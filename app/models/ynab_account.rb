@@ -13,6 +13,10 @@ class YnabAccount < ApplicationRecord
     where("last_reconciled_at < ?", Time.current - 1.day)
   end
 
+  def self.sum_in_cents
+    sum(:cleared_balance) / 10.0
+  end
+
   # Overrides YnabDataImporter implementation
   def self.transform(accts)
     super(

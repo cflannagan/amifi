@@ -19,4 +19,3 @@ RSpec.describe TheFiPicture, type: :model do
     end
   end
 end
-
